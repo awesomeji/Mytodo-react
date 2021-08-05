@@ -1,0 +1,258 @@
+:root {
+  --calendar-color: #20bf6b;
+  --todo-color: #f7b731;
+  --diary-color: #4b7bec;
+  --text-color: white;
+}
+
+html {
+  font-size: 62.5%;
+  /* 10px=1rem */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*걍 깔끔하게 박스만들어 준다 생각혀 박스를 외곽으로확장해서
+  스크롤을 늘리지 않고 안에서 해결하도록*/
+  font-family: sans-serif;
+}
+
+
+#root {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  
+}
+
+
+
+
+
+.calendar-layout,
+.todo-layout,
+.diary-layout 
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  
+  /* 1vh는 뷰포트값(height)의 1/00 즉 이말은 높이를화면에꽉차게하라 */
+  
+  width: 70%;
+  min-width: 600px;
+  box-shadow: 9px 9px 9px rgb(126, 124, 124);
+  font-size: 2.5rem;
+}
+.calendar-layout {
+  background-color: var(--calendar-color);
+}
+
+.todo-layout{
+  background-color: var(--todo-color);
+  color: var(--text-color)
+}
+
+.diary-layout{
+  background-color: var(--diary-color);
+}
+
+.calendar-header{
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-color);
+  
+}
+.nav{
+  border:2px solid var(--text-color);
+  border-radius: 5px;
+  display: flex;
+  padding-left: 5px;
+  height: 35px;
+}
+.year-month{
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+h1{
+  letter-spacing: 15px;
+}
+.nav-btn{
+  width: 30px;
+  
+  font-size: 2rem;
+  color:var(--text-color);
+  background-color:  var(--calendar-color);
+  border:none;
+  line-height: 35px;
+  
+  
+}
+
+.go-today{
+  border-left: 1px solid var(--text-color);
+  border-right: 1px solid var(--text-color);
+  width: 120px;
+  text-align: center;
+}
+
+.calendar{
+  width: 50vw;
+  height: 70vh;
+  margin: 5px;
+  background-color: var(--text-color);
+  border-radius: 1rem;
+  
+}
+
+.weekcontainer{
+  display: flex;
+  width: 50vw;
+  
+}
+.cal{
+  border-radius: 1rem;
+}
+.date,
+.day
+{
+  width: calc(100% / 7);  
+ 
+}
+.date{  
+  border-right: 1px solid var(--calendar-color);
+  text-align: right;
+  padding: 5px 10px 0 0;
+  color: var(--calendar-color);
+
+}
+
+.day{
+  background-color: var(--calendar-color);
+  color: var(--text-color);
+}
+
+.dates{
+  width: 100%;
+  display: flex;
+  height:calc(100% / 5);
+  border-bottom: 1px solid var(--calendar-color);
+
+}
+
+.other{
+  opacity: 0.3;
+}
+
+.today {
+  position: relative;
+  color: #ffffff;
+  z-index: 0;
+  
+}
+
+.today::before {
+  position: absolute;
+  top: 15%;
+  left:83%;
+  z-index:-1;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: var(--calendar-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+}
+
+.day:nth-child(7n + 1),
+.date:nth-child(7n + 1) {
+  color: #d13e3e;
+}
+
+.day:nth-child(7n),
+.date:nth-child(7n) {
+  color: #396ee2;
+}
+
+
+
+
+
+ul{list-style: none;}
+
+ .active{
+  opacity: 0.5;
+  text-decoration: line-through;
+  
+}
+
+
+.todo-body{
+  border:3px solid var(--text-color);
+  width: 40vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.row{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom:10px;
+}
+#delete,
+.editbutton
+{
+  
+  border: none;
+  color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+#delete{
+  background-color: crimson;
+}
+.editbutton{
+ background-color: var(--calendar-color);
+}
+
+.createbutton{
+  border:none;
+  color: var(--todo-color);
+  background-color: var(--text-color);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.inputform{
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+#todos{
+  width: 80%;
+  height: 40px;
+  border: 1px solid var(--text-color);
+  background-color: var(--todo-color);
+}
+
+::placeholder{
+  opacity: 0.5;
+  color: var(--text-color)
+}
+
